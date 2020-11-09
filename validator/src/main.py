@@ -58,7 +58,7 @@ def add_user():
 	"receiver_email":_email,
 	"subject":"Successful Sintval Registration",
 	"message":_firstname +" " + _lastname+ ", you have been successfully registered."}}
-	x = requests.post(url, data = myobj)
+	x = requests.post(url, json = myobj)
 	return "Record Inserted"
 	
 @app.route('/validate', methods=['POST'])
