@@ -2,7 +2,7 @@ import mysql.connector
 from flask import jsonify
 from flask import Flask, request
 from flask_cors import CORS
-
+import requests
 import config
 
 app = Flask(__name__)
@@ -53,8 +53,8 @@ def add_user():
 	conn = db_connection.cursor()
 	conn.execute(sql, data)
 	db_connection.commit()
-	url = 'https://us-central1-studious-lyceum-284904.cloudfunctions.net/function-2'
-	myobj = {"topic":"Crt","message":{
+	url = ''
+	myobj = {"topic":"","message":{
 	"receiver_email":_email,
 	"subject":"Successful Sintval Registration",
 	"message":_firstname +" " + _lastname+ ", you have been successfully registered."}}
